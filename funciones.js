@@ -1,5 +1,6 @@
 const httpToMqtt = async (req, res) => {
   if(req.body != "null"){
+    console.log(req.body);
     try {
       const obj = JSON.parse(req.body);
       
@@ -7,10 +8,10 @@ const httpToMqtt = async (req, res) => {
       res.send({status: true, msg: "ok"});
   } catch (e) {
       console.log("json invalid");
-      res.send({status: true, msg: "json invalid"});
+      res.send({status: false, msg: "json invalid"});
   }
   } else{
-    res.send({status: true, msg: "fail"});
+    res.send({status: false, msg: "fail"});
   }
 }
 
