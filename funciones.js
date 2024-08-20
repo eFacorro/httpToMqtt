@@ -1,7 +1,7 @@
 const httpToMqtt = async (req, res) => {
-  if(req.headers.json != "null"){
+  if(req.body != "null"){
     try {
-      const obj = JSON.parse(req.headers.json);
+      const obj = JSON.parse(req.body);
       
       sendMqtt(obj);
       res.send({status: true, msg: "ok"});
