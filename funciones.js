@@ -19,7 +19,7 @@ const mqtt = require('mqtt');
 const client = mqtt.connect(process.env.MQTT_URL, {
     username: process.env.MQTT_USERNAME,
     password: process.env.MQTT_PASSWORD,
-    clientId: process.env.MQTT_CLIENT_ID
+    clientId: process.env.MQTT_CLIENT_ID + Math.random().toString(16).substr(2, 8)
 });
 
 client.on('connect', function () {
