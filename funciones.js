@@ -3,8 +3,9 @@ const httpToMqtt = async (req, res) => {
     console.log(req.body);
     try {
       const obj = req.body;
-      if(obj.estado === "on" || obj.estado === "off"){
-        obj = obj.estado;
+      if(obj.estado === "on" || obj.estado === "off"){  // mejorar esto
+        client.publish("chi.wildlife/", obj.estado);
+        return
       }
       sendMqtt(obj);
       res.send({status: true, msg: "ok"});
