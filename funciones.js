@@ -3,7 +3,9 @@ const httpToMqtt = async (req, res) => {
     console.log(req.body);
     try {
       const obj = req.body;
-      
+      if(obj.estado === "on" || obj.estado === "off"){
+        obj = obj.estado;
+      }
       sendMqtt(obj);
       res.send({status: true, msg: "ok"});
   } catch (e) {
