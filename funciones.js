@@ -19,6 +19,10 @@ const httpToMqtt = async (req, res) => {
   }
 }
 
+const ping = async () => {
+  console.log("ping");
+}
+
 const mqtt = require('mqtt');
 
 const client = mqtt.connect(process.env.MQTT_URL, {
@@ -49,5 +53,6 @@ function sendMqtt(obj){
 }
 
 module.exports = {
-  httpToMqtt
+  httpToMqtt,
+  ping
 };
